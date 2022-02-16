@@ -1,0 +1,29 @@
+{
+  "name": "blog",
+  "version": "1.0.0",
+  "description": "leaning_node",
+  "main": "index.js",
+  "scripts": {
+    "start":"nodemon --inspect index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hieptvh18/project_nodeJs.git"
+  },
+  "keywords": [
+    "first_project_nodejs"
+  ],
+  "author": "hieptvh",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hieptvh18/project_nodeJs/issues"
+  },
+  "homepage": "https://github.com/hieptvh18/project_nodeJs#readme",
+  "dependencies": {
+    "express": "^4.17.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}
