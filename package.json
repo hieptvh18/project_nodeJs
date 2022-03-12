@@ -5,7 +5,7 @@
   "main": "src/index.js",
   "scripts": {
     "start": "nodemon --inspect src/index.js",
-    "watch":"node-sass --watch src/resources/scss/app.scss src/public/css/app.css",
+    "watch": "node-sass --watch src/resources/scss/app.scss src/public/css/app.css",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -23,7 +23,7 @@
   "homepage": "https://github.com/hieptvh18/project_nodeJs#readme",
   "dependencies": {
     "ejs": "^3.1.6",
-    "express": "^4.17.2",
+    "express": "^4.17.3",
     "express-handlebars": "^6.0.3"
   },
   "devDependencies": {

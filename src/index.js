@@ -2,7 +2,7 @@ const express = require('express')
 const morgan = require('morgan');
 const path = require('path');
 const app = express()
-const port = 3000
+const port = 5000
 
     //--------------------------------------------//
     // config load tài nguyên trong public
@@ -14,7 +14,7 @@ const hbs = exphbs.create({ extname: '.hbs' });
     // TEMPLATE ENGINE
 app.engine('hbs', hbs.engine)
 app.set('view engine', 'hbs');
-app.set("views", path.join(__dirname, 'resources\\views')); // window đổi dấu /
+app.set("views", path.join(__dirname, 'resources/views')); // window đổi dấu /
 
 
 //HTTP logger
@@ -34,3 +34,11 @@ app.get('/news', (req, res) => {
 app.listen(port, () => {
     console.log(`Example app listening at http://localhost:${port}`)
 });
+
+/**
+ * install and config de build dc project nodejs: install express(framework nodejs)
+ * +install nodemon -> live change code
+ * +install node-sass: live change code sass -> config package.json
+ * 
+ * 
+ */
