@@ -4,31 +4,38 @@ const path = require('path');
 const app = express()
 const port = 5000
 
-    //--------------------------------------------//
-    // config load tài nguyên trong public
-app.use(express.static( path.join(__dirname, 'public')))
+//--------------------------------------------//
+// config load tài nguyên trong public
+app.use(express.static(path.join(__dirname, 'public')))
+
+// middleware handle form
+app.use(express.urlencoded({
+    extended: true
+}))
+app.use(express.json())
+
+// route
+const route = require('./routes');
 
 const exphbs = require('express-handlebars');
+const { urlencoded } = require('express');
 const hbs = exphbs.create({ extname: '.hbs' });
+const db = require('./config/db/index');
 
-    // TEMPLATE ENGINE
+// TEMPLATE ENGINE
 app.engine('hbs', hbs.engine)
 app.set('view engine', 'hbs');
-app.set("views", path.join(__dirname, 'resources/views')); // window đổi dấu /
+app.set("views", path.join(__dirname, 'resources','views')); // window đổi dấu /
 
 
 //HTTP logger
 app.use(morgan('combined'));
 
 // routing
-app.get('/', (req, res) => {
-    res.render('home')
-});
+route(app);
 
-app.get('/news', (req, res) => {
-    res.render('news')
-});
-
+// db
+db.connect() 
 
 // port
 app.listen(port, () => {

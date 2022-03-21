@@ -2,5 +2,12 @@
 
 <p>DAy la toi toi la ai hihi</p>
 <div class="container">
-    hello cac ban
+    {{!-- render --}}
+    {{#each courses}}
+    
+       <div class="p-2 bg-warning col-3 mr-3">
+            {{this._doc.name}}
+       </div>
+
+    {{/each}}
 </div>
