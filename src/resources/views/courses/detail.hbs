@@ -1,0 +1,26 @@
+<div class="mt-4">
+    <div class="row">
+        <div class="col-3">
+            <button class="btn btn-info">HOC NGAY</button>
+            
+            <div class="mt-5">
+                <div class="title">
+                    Filter courses
+                </div>
+                <ul>
+                    <li><a href="">Level 1</a></li>
+                    <li><a href="">Level 2</a></li>
+                    <li><a href="">Level 3</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-9">
+            <h2>{{course.name}}</h2>
+            <iframe width="100%" height="415" src="https://www.youtube.com/embed/{{course.videoId}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+            <div class="desc">
+                <p>Description: {{course.description}}</p>
+            </div>
+        </div>
+    </div>
+</div>

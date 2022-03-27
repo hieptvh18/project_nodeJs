@@ -1,13 +1,24 @@
-<h2>ĐÂY LÀ CONTENT HOMEPAGE</h2>
-
-<p>DAy la toi toi la ai hihi</p>
-<div class="container">
+<div class="container mt-3 mb-4">
+    <h3 class="m-3 text-primary">COURSES ONLINE WITH NODEJS EXPRESS</h3>
     {{!-- render --}}
-    {{#each courses}}
-    
-       <div class="p-2 bg-warning col-3 mr-3">
-            {{this._doc.name}}
-       </div>
 
-    {{/each}}
+    <div class="row p-2 bg-warning mr-3 mb-3">
+        {{#each courses}}
+            <div class="col-sm-4 mb-4">
+
+                <div class="card">
+                    <a href="/course/{{this.slug}}">
+                        <img src="{{this.image}}" alt="" height="200px" class="card-img-top"></a>
+                    <div class="card-body">
+                       <h5> <a href="/course/{{this.slug}}">
+                             {{this.name}}</a></h5>
+                       <p class="card-text">{{this.description}}</p>
+                       <a href="" class="btn btn-info">Buy now</a>
+                    </div>
+                </div>
+            </div>
+
+        {{/each}}
+    </div>
+
 </div>
