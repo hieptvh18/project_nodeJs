@@ -42,6 +42,35 @@ class CourseController {
             .catch(next);
     }
 
+    // edit
+    edit(req, res, next) {
+        // vget data
+        Course.findById(req.params.id)
+        .then(course=>res.render('courses/edit-course',{
+            course:mongooseToObject(course)
+        }))
+
+    }
+
+    // update
+    update(req,res,next){
+
+        const formData = req.body;
+        // get image of video youtobe
+        Course.updateOne({_id:req.params.id},formData)
+        .then(()=>res.redirect('/me/stored/courses'))
+        .catch(next)
+    }
+
+    // delete
+    destroy(req,res,next){
+        Course.deleteOne({_id:req.params.id})
+        .then(()=>{
+            res.redirect('back')
+        })
+        .catch(next)
+    }
+
 }
 
 // export khoi tao class 

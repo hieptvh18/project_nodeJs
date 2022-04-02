@@ -3,6 +3,9 @@ const morgan = require('morgan');
 const path = require('path');
 const app = express()
 const port = 5000
+// fake method
+var methodOverride = require('method-override')
+
 
 //--------------------------------------------//
 // config load tài nguyên trong public
@@ -14,12 +17,21 @@ app.use(express.urlencoded({
 }))
 app.use(express.json())
 
+app.use(methodOverride('_method'))
+
 // route
 const route = require('./routes');
 
 const exphbs = require('express-handlebars');
 const { urlencoded } = require('express');
-const hbs = exphbs.create({ extname: '.hbs' });
+
+// define helpers
+const hbs = exphbs.create({ 
+    extname: '.hbs',
+    helpers:{
+        sum: (a,b)=> a+b 
+    }
+    });
 const db = require('./config/db/index');
 
 // TEMPLATE ENGINE
