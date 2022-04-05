@@ -7,12 +7,26 @@ class MeController {
 
     // GET me/stored/courses
     index(req, res,next) {
-        // get data
-        Course.find({})
-            .then(courses => res.render('me/stored-courses',{
+
+        // call promise theo thu tu
+        Promise.all([Course.countDocumentsDeleted(),Course.find({})])
+        .then(([count,courses])=>{
+             res.render('me/stored-courses',{
+                 countDeleted:count,
                 courses:muntipleMongooseToObject(courses)
-            }))
-            .catch(next)
+            })
+        })
+
+        // Course.countDocumentsDeleted()
+        // .then(count=>{
+        //     console.log(count)
+        // })
+
+        // Course.find({})
+        //     .then(courses => res.render('me/stored-courses',{
+        //         courses:muntipleMongooseToObject(courses)
+        //     }))
+        //     .catch(next)
     }
 
     // get/:slug
@@ -23,6 +37,16 @@ class MeController {
                 res.render('courses/detail', { course: mongooseToObject(course) })
             })
             .catch(next)
+    }
+
+    // view trash: me/trash/courses
+    trashCourse(req,res,next){
+        // get course deleted
+        Course.findDeleted({})
+        .then(courses => res.render('me/trash-courses',{
+            courses:muntipleMongooseToObject(courses)
+        }))
+        .catch(next)
     }
 
     

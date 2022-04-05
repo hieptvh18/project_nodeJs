@@ -12,6 +12,12 @@ router.get('/:slug', courseController.show);
 // update edit
 router.get('/:id/edit', courseController.edit);
 router.put('/:id', courseController.update);
+// restore
+router.patch('/:id/restore', courseController.restore);
+// force course
+router.delete('/:id/force', courseController.forceDestroy);
+
+
 
 // remove
 router.delete('/:id', courseController.destroy);

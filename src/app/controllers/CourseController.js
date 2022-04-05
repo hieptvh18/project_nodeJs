@@ -37,7 +37,7 @@ class CourseController {
         const course = new Course(formData);
         course.save()
             .then(response => {
-                res.redirect('/course/create?msg=Create success!')
+                res.redirect('/me/stored/courses?msg=Create success!')
             })
             .catch(next);
     }
@@ -64,13 +64,30 @@ class CourseController {
 
     // delete
     destroy(req,res,next){
-        Course.deleteOne({_id:req.params.id})
+        Course.delete({_id:req.params.id})
         .then(()=>{
             res.redirect('back')
         })
         .catch(next)
     }
 
+    // restore[patch] courses/:id/restore
+    restore(req,res,next){
+        Course.restore({_id:req.params.id})
+        .then(()=>{
+            res.redirect('back')
+        })
+        .catch(next)
+    }
+
+    // forceDestroy[delete]
+    forceDestroy(req,res,next){
+        Course.deleteOne({_id:req.params.id})
+        .then(()=>{
+            res.redirect('back')
+        })
+        .catch(next)
+    }
 }
 
 // export khoi tao class 
