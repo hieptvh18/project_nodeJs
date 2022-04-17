@@ -22,9 +22,15 @@
                 <tr>
                     <th>#</th>
                     <th>STT</th>
-                    <th>Course name</th>
-                    <th>Course lavel</th>
-                    <th>Created at</th>
+                    <th>Course name 
+                        {{{sortable "name" _sort}}}
+</th>
+                    <th>Course lavel
+                        {{{sortable "level" _sort}}}
+                    </th>
+                    <th>Created at
+                        {{{sortable "created_at" _sort}}}
+                    </th>
                     <th>Services</th>
                 </tr>
             </thead>
