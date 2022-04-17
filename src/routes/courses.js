@@ -17,6 +17,8 @@ router.patch('/:id/restore', courseController.restore);
 // force course
 router.delete('/:id/force', courseController.forceDestroy);
 
+// action remove muntiple courses
+router.post('/form-action',courseController.handleFormAction)
 
 
 // remove
