@@ -21,7 +21,15 @@
         </div>
          <div class="form-group">
             <label for="">Level</label>
-            <input type="text" name="level" value="{{course.level}}" class="form-control">
+            {{!-- <input type="text" name="level" value="{{course.level}}" class="form-control"> --}}
+            <select name="level" class="form-control" id="">
+                {{#checkSelectedEditLevelCourse courses.level == 1}}
+                    <option selected value="1">Normal</option>
+                {{/if}}
+                <option value="2">Easy</option>
+                <option value="3">Medium</option>
+                <option value="4">Difficult</option>
+            </select>
         </div>
         
 

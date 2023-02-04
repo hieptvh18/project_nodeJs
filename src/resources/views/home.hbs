@@ -2,23 +2,40 @@
     <h3 class="m-3 text-primary">COURSES ONLINE WITH NODEJS EXPRESS</h3>
     {{!-- render --}}
 
-    <div class="row p-2 bg-warning mr-3 mb-3">
-        {{#each courses}}
-            <div class="col-sm-4 mb-4">
+    <div class="row">
+        <div class="dropdown">
+            <h3>Filter course level</h3>
+            <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown"
+                aria-expanded="false">
+                Dropdown button
+            </button>
+            <div class="dropdown-menu">
+                <a class="dropdown-item" href="?level=1">Normal</a>
+                <a class="dropdown-item" href="?level=2">Easy</a>
+                <a class="dropdown-item" href="?level=3">Medium</a>
+                <a class="dropdown-item" href="?level=4">Difficult</a>
+            </div>
+        </div>
+        <div class="mt-4 p-2 bg-warning mr-3 mb-3">
+            <div class="row">
+                {{#each courses}}
+                <div class="col-sm-4 mb-4">
 
-                <div class="card">
-                    <a href="/course/{{this.slug}}">
-                        <img src="{{this.image}}" alt="" height="200px" class="card-img-top"></a>
-                    <div class="card-body">
-                       <h5> <a href="/course/{{this.slug}}">
-                             {{this.name}}</a></h5>
-                       <p class="card-text">{{this.description}}</p>
-                       <a href="" class="btn btn-info">Buy now</a>
+                    <div class="card">
+                        <a href="/course/{{this.slug}}">
+                            <img src="{{this.image}}" alt="" height="200px" class="card-img-top"></a>
+                        <div class="card-body">
+                            <h5> <a href="/course/{{this.slug}}">
+                                    {{this.name}}</a></h5>
+                            <p class="card-text">{{this.description}}</p>
+                            <a href="" class="btn btn-info">Buy now</a>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-        {{/each}}
+                {{/each}}
+            </div>
+        </div>
     </div>
 
 </div>

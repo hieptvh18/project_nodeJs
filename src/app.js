@@ -29,7 +29,10 @@ const { urlencoded } = require('express');
 const hbs = exphbs.create({ 
     extname: '.hbs',
     helpers:{
-        sum: (a,b)=> a+b 
+        sum: (a,b)=> a+b ,
+        checkSelectedEditLevelCourse: (elVal)=>{
+            
+        }
     }
     });
 const db = require('./config/db/index');

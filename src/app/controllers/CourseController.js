@@ -1,6 +1,7 @@
 const Course = require('../models/Course');
 const { mongooseToObject } = require('../../util/mongoose');
 const { rawListeners } = require('../models/Course');
+
 // handle data bla bla
 
 class CourseController {
@@ -27,7 +28,7 @@ class CourseController {
 
     // save add [method POST]
     store(req, res, next) {
-
+        // console.log(req.body);
         // validate bla bla
 
         const formData = req.body;
@@ -37,6 +38,7 @@ class CourseController {
         const course = new Course(formData);
         course.save()
             .then(response => {
+                console.log(response);
                 res.redirect('/me/stored/courses?msg=Create success!')
             })
             .catch(next);
