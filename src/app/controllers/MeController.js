@@ -8,8 +8,18 @@ class MeController {
     // GET me/stored/courses
     index(req, res,next) {
 
+        let courseQuery = Course.find({});
+
+        // check option sort(use middleware)
+        if(req.query.hasOwnProperty('_sort')){
+            // gan them action + change type sort
+            courseQuery = courseQuery.sort({
+                [req.query.column]: req.query.type
+            });
+        }
+
         // call promise theo thu tu
-        Promise.all([Course.countDocumentsDeleted(),Course.find({})])
+        Promise.all([Course.countDocumentsDeleted(),courseQuery])
         .then(([count,courses])=>{
              res.render('me/stored-courses',{
                  countDeleted:count,

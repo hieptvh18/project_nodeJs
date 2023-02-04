@@ -90,6 +90,49 @@ class CourseController {
         })
         .catch(next)
     }
+
+    // 
+    handleFormAction(req,res,next){
+        switch(req.body.action){
+            case"delete":
+                // code remove
+                Course.delete({_id:{
+                    $in:req.body.courseIds
+                }})
+                .then(()=>{
+                    res.redirect('back')
+                })
+                .catch(next)
+
+            break;
+
+            case "restore":
+                Course.restore({_id:{
+                    $in:req.body.courseIds
+                }})
+                .then(()=>{
+                    res.redirect('back')
+                })
+                .catch(next)
+            break;
+
+            case "forceDelete":
+                Course.deleteMany({_id:{
+                    $in:req.body.courseIds
+                }})
+                .then(()=>{
+                    res.redirect('back')
+                })
+                .catch(next)
+            break;
+
+            default:
+            res.json({
+                message:'action is invalid'
+            })
+            break;
+        }
+    }
 }
 
 // export khoi tao class 
